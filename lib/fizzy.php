@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FIZZY
  * A micro cms
@@ -460,12 +461,5 @@ function clean($var)
     return $clean_var;
 }
 
-/**
- * Redirect the client to the given location.
- * @param string $location
- */
-function redirect($location)
-{
-    header('Location: ' . $location);
-    exit();
-}
+
+?>
