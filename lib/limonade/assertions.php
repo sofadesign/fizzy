@@ -103,11 +103,11 @@ function assert_length_of($value, $length, $message = '<1> expected to be of len
 
 function assert_trigger_error($callable, $args = array(), $message = '<1> should trigger an error') {
   tests_execute_before_assert();
-  $trigger_errors = count($GLOBALS["limonade"]["tests_errors"]);
+  $trigger_errors = count($GLOBALS["limonade"]["test_errors"]);
   set_error_handler("test_error_handler");
   $result = call_user_func_array($callable, $args);
   restore_error_handler();
-  return assert('$trigger_errors < count($GLOBALS["limonade"]["tests_errors"]); //'.$message);
+  return assert('$trigger_errors < count($GLOBALS["limonade"]["test_errors"]); //'.$message);
 }
 
 # TODO add web browser assertions assert_http_get, assert_http_response... as in SimpleTest (http://www.simpletest.org/en/web_tester_documentation.html)
