@@ -200,7 +200,7 @@ function b_add_page()
 function b_edit_page()
 {
     $uid = params('uid');
-    $page = find_page("/pages/page[@uid='{$uid}']");
+    $page = find_page($uid);
     
     if(request_is_post()) {
         
@@ -211,7 +211,7 @@ function b_edit_page()
     
     $vars = array();
     if(null !== $page) {
-        $vars['page'] = page_to_array($page);
+        $vars['page'] = element_to_array($page);
     }
     return render_backend('form.phtml', $vars);
 }
