@@ -907,11 +907,11 @@ function request_uri($env = null)
   // {
   //  $uri = key($env['GET']);
   // }
-  else if(array_key_exists('PHP_SELF', $env['SERVER']))
-  {
-    # Sould be fine in case of url rewriting
-    $uri = str_replace($env['SERVER']['SCRIPT_NAME'], '', $env['SERVER']['PHP_SELF']);
-  }
+  // else if(array_key_exists('PHP_SELF', $env['SERVER']))
+  // {
+  //   # Sould be fine in case of url rewriting
+  //   $uri = str_replace($env['SERVER']['SCRIPT_NAME'], '', $env['SERVER']['PHP_SELF']);
+  // }
 	else
 	{
     $app_file = app_file();
@@ -1425,10 +1425,15 @@ function render_file($filename, $return = false)
 function url_for($params = null)
 {
   $env = env();
-  $request_uri = rtrim($env['SERVER']['REQUEST_URI'], '?');
-  $base_path   = $env['SERVER']['SCRIPT_NAME'];
-
-  $base_path = ereg_replace('index\.php$', '?', $base_path);
+  # better for url rewrite but is it still working in other cases ?
+  $uri = request_uri();
+  $base_path = preg_replace('/'.preg_quote($uri, '/').'$/', '', rtrim($env['SERVER']['REQUEST_URI'], '/'));
+  
+  
+  // $request_uri = rtrim($env['SERVER']['REQUEST_URI'], '?');
+  // $base_path   = $env['SERVER']['SCRIPT_NAME'];
+  // 
+  // $base_path = ereg_replace('index\.php$', '?', $base_path);
 
   $paths = array();
   $params = func_get_args();

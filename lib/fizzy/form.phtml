@@ -6,7 +6,7 @@
     }
 ?>
 
-<form action="<?= option('backend_url') ?>/<?= $action ?>" method="post" id="page_form" name="page_form">
+<form action="<?= url_for(option('backend_url'), $action); ?>" method="post" id="page_form" name="page_form">
     <div class="row">
         <label for="title">Title</label>
         <input type="text" id="title" name="title" value="<?= isset($page) ? $page['title'] : '' ?>" />
@@ -42,7 +42,7 @@
     </div>
     
     <div class="row row-buttons">
-        <input type="submit" id="save" name="save" value="Save" /> or <a href="<?= option('backend_url') ?>/dashboard">cancel</a>
+        <input type="submit" id="save" name="save" value="Save" /> or <a href="<?= url_for(option('backend_url'), 'dashboard'); ?>">cancel</a>
         <input type="hidden" id="uid" name="uid" value="<?= isset($page) ? $page['uid'] : '' ?>" />
     </div>
 </form>

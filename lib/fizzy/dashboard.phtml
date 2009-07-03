@@ -11,11 +11,17 @@
     <?php foreach($pages as $page) : ?>
         <tr>
             <td><?= $page['title'] ?></td>
-            <td><a href="<?= option('base_url') ?>/<?= $page['slug'] ?>"><?= $page['slug'] ?><a/></td>
+            <td><a href="<?= url_for(option('base_url'), $page['slug']) ?>"><?= $page['slug'] ?><a/></td>
             <td>
-                <a href="<?= option('backend_url') ?>/edit/<?= $page['uid'] ?>">edit</a>
-                <a href="<?= option('backend_url') ?>/delete/<?= $page['uid'] ?>">delete</a>
+                <a href="<?= url_for(option('backend_url'), 'edit',$page['uid']) ?>">edit</a>
+                <a href="<?= url_for(option('backend_url'), 'delete', $page['uid'])?>">delete</a>
             </td>
+            <?php
+            #echo "<pre style='white-space:no-wrap;'><code>";
+            #var_dump(env());
+            #echo "</code></pre>";
+            ?>
+            
         </tr>
     <?php endforeach; ?>
     </tbody>
