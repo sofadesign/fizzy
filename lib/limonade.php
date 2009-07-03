@@ -69,6 +69,10 @@ define('ENV_DEVELOPMENT',       100);
 define('X-SENDFILE',            10);
 define('X-LIGHTTPD-SEND-FILE',  20);
 
+# for PHP 5.3.0 <
+if(!defined('E_DEPRECATED')) define('E_DEPRECATED', 8192);
+if(!defined('E_USER_DEPRECATED')) define('E_USER_DEPRECATED', 16384);
+
 
 ## SETTING BASIC SECURITY _____________________________________________________
 
@@ -903,6 +907,11 @@ function request_uri($env = null)
   // {
   //  $uri = key($env['GET']);
   // }
+  else if(array_key_exists('PHP_SELF', $env['SERVER']))
+  {
+    # Sould be fine in case of url rewriting
+    $uri = str_replace($env['SERVER']['SCRIPT_NAME'], '', $env['SERVER']['PHP_SELF']);
+  }
 	else
 	{
     $app_file = app_file();
@@ -943,6 +952,7 @@ function request_uri($env = null)
   {
     $uri = '/' . $uri; # add a leading slash
   }
+  
   return $uri;
 }
 
