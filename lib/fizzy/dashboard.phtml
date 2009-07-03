@@ -1,0 +1,22 @@
+<h1>Dashboard</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Slug</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach($pages as $page) : ?>
+        <tr>
+            <td><?= $page['title'] ?></td>
+            <td><a href="<?= option('base_url') ?>/<?= $page['slug'] ?>"><?= $page['slug'] ?><a/></td>
+            <td>
+                <a href="<?= option('backend_url') ?>/edit/<?= $page['uid'] ?>">edit</a>
+                <a href="<?= option('backend_url') ?>/delete/<?= $page['uid'] ?>">delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

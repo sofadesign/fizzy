@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Fizzy Admin</title>
+        <style type="text/css">
+            html,body { background-color: #242424; color: #D3D3D3; font-family: verdana,arial,clean,sans-serif; font-size: 13px; margin: 0; padding: 0; }
+            table { width: 100%; }
+            div#backend {
+                width: 500px;
+                height: 100%;
+                margin: 20px auto;
+            }
+            div#header { 
+                padding: 10px; 
+                background-color: #D3D3D3;
+                color: #232323;
+            }
+            div#content { padding: 10px; }
+            /* page form */
+            label { display: block; margin-bottom: 4px; font-weight: bold; border-bottom: 1px dotted #BBBBBB; }
+            input[type="text"] { display: block; }
+            textarea { display: block; }
+            form div.row { margin-bottom: 12px; }
+            form div.row-buttons { text-align: right; padding-top: 6px; border-top: 1px dotted #BBBBBB; }
+        </style>
+    </head>
+    <body>
+        <div id="backend">
+            <div id="header">
+                fizzy&nbsp;&gt;&nbsp; 
+                <a href="<?= option('backend_url') ?>/dashboard">dashboard</a>&nbsp;&gt;&gt;&nbsp;
+                <a href="<?= option('backend_url') ?>/add">add page</a>&nbsp;|&nbsp;
+                <a href="<?= option('backend_url') ?>/logout">logout</a>
+            </div>
+            
+            <div id="content">
+                <?= $content; ?>
+            </div>
+            
+            <div id="footer">
+                
+            </div>
+        </div>
+    </body>
+</html>

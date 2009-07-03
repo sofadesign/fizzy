@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fizzy version="0.2">
+    <application>
+        <title>Fizzy</title>
+        <env>development</env>
+        <backendSwitch>admin</backendSwitch>
+        <templates />
+        <layouts>
+            <layout name="Fizzy">layout.fizzy.phtml</layout>
+            <layout name="Voidwalkers">layout.voidwalkers.phtml</layout>
+        </layouts>
+        <routes>
+            <route type="GET" destination="f_homepage">/</route>
+            <route type="GET" destination="f_by_slug">/:slug</route>
+            <route type="GET" destination="f_by_uid">/page/*</route>
+            <route type="GET" destination="b_dashboad">/BACKEND/</route>
+            <route type="GET" destination="b_dashboard">/BACKEND/dashboard</route>
+            <route type="GET" destination="b_add_page">/BACKEND/add</route>
+            <route type="POST" destination="b_add_page">/BACKEND/add</route>
+            <route type="GET" destination="b_edit_page">/BACKEND/edit</route>
+            <route type="POST" destination="b_edit_page">/BACKEND/edit</route>
+            <route type="GET" destination="b_edit_page">/BACKEND/edit/:uid</route>
+            <route type="POST" destination="b_edit_page">/BACKEND/edit/:uid</route>
+            <route type="GET" destination="b_delete_page">/BACKEND/delete/*</route>
+            <route type="GET" destination="b_login">/BACKEND/login</route>
+            <route type="POST" destination="b_login">/BACKEND/login</route>
+            <route type="GET" destination="b_logout">/BACKEND/logout</route>
+        </routes>
+    </application>
+    <users>
+        <user>
+            <username>admin</username>
+            <password></password>
+        </user>
+    </users>
+</fizzy>

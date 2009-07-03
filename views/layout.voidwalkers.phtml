@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Fizzy: Limonade with the bubbles</title>
+        <style type="text/css">
+            html, body { background-color: #242424; color: #D3D3D3; font-family: verdana,arial,clean,sans-serif; font-size: 13px; }
+            div#site { 
+                height: 300px;
+                left: 50%;
+                margin-left: -250px;
+                margin-top: -150px;
+                position: absolute;
+                top: 50%;
+                width: 500px;
+            }
+            
+            .voidwalkers {
+                border-top: 14px solid #249BFF;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="site" class="voidwalkers">
+            <div id="content">
+                <?= $content; ?>
+            </div>
+        </div>
+    </body>
+</html>
